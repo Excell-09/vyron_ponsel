@@ -1,5 +1,5 @@
-import { Product } from "@/app/generated/prisma";
 import { prisma } from "@/lib/prisma";
+import { Product } from "@prisma/client";
 
 export type TProduct = Omit<Product, "isSold"> & {
   images: string;
