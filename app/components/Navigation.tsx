@@ -11,7 +11,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import Image from "next/image";
-import { logo, transparentLogo } from "../assets/assets";
+import { transparentLogo } from "../assets/assets";
 
 const TokoOfflineLink = [
   {
