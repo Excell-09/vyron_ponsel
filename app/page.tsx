@@ -2,18 +2,15 @@
 
 import Image from "next/image";
 import { transparentHorizontalLogo } from "./assets/assets";
+import { Button } from "@/components/ui/button";
+import { Navigation } from "./components/Navigation";
 
 export default function Home() {
   return (
-    <div>
-      <nav className="flex items-center justify-center py-5 border-b-2 border-b-gray-300">
-        <Image
-          src={transparentHorizontalLogo}
-          alt="logo"
-          width={150}
-          height={150}
-        />
-      </nav>
+    <div className="bg-slate-200">
+      <div className="max-w-5xl m-auto bg-slate-600">
+        <Navigation />
+      </div>
     </div>
   );
 }
