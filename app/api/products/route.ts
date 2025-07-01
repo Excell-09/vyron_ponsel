@@ -6,17 +6,21 @@ export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const q = searchParams.get("q");
 
-    if (!q) {
-      const products = await prisma.product.findMany({
-        include: { images: true },
-      });
-
-      return Response.json({ data: products });
-    }
+    const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
 
     const products = await prisma.product.findMany({
+      where: {
+        OR: [
+          { isSold: false },
+          { isSold: true, updatedAt: { gte: threeDaysAgo } },
+        ],
+      },
       include: { images: true },
     });
+
+    if (!q || q.trim() === "") {
+      return Response.json({ data: products });
+    }
 
     const productsAddedFilterText = products.map((data) => ({
       ...data,

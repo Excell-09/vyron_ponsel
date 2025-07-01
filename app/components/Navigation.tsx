@@ -39,7 +39,7 @@ const KreditHpLink = [
 
 export function Navigation() {
   return (
-    <div className="bg-white shadow-lg flex justify-center items-center h-full">
+    <div className="bg-white shadow-lg flex justify-center items-center h-full z-50 sticky">
       <NavigationMenu viewport={false}>
         <NavigationMenuList>
           <NavigationMenuItem className="m-3">
